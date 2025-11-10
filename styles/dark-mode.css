@@ -1,0 +1,385 @@
+/* Dark Mode Toggle - CSS Only Implementation */
+
+/* Hide the actual checkbox */
+.dark-mode-toggle {
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    z-index: 1001;
+}
+
+.dark-mode-toggle input[type="checkbox"] {
+    display: none;
+}
+
+/* Toggle Button Styling */
+.toggle-label {
+    display: block;
+    width: 60px;
+    height: 30px;
+    background: #ddd;
+    border-radius: 50px;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+.toggle-label:before {
+    content: '☀️';
+    position: absolute;
+    top: 50%;
+    left: 8px;
+    transform: translateY(-50%);
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.toggle-label:after {
+    content: '';
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    width: 24px;
+    height: 24px;
+    background: white;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* When checkbox is checked (dark mode) */
+.dark-mode-toggle input[type="checkbox"]:checked + .toggle-label {
+    background: #2c3e50;
+}
+
+.dark-mode-toggle input[type="checkbox"]:checked + .toggle-label:before {
+    content: '🌙';
+    left: 38px;
+}
+
+.dark-mode-toggle input[type="checkbox"]:checked + .toggle-label:after {
+    left: 33px;
+    background: #34495e;
+}
+
+/* Dark Mode Styles */
+.dark-mode-toggle input[type="checkbox"]:checked ~ * body,
+body:has(.dark-mode-toggle input[type="checkbox"]:checked),
+#dark-mode-switch:checked ~ *,
+body.dark-theme {
+    /* Body and general styles */
+    background-color: #1a1a1a;
+    color: #e0e0e0;
+}
+
+/* Navigation Dark Mode - Multiple selector approaches for better compatibility */
+#dark-mode-switch:checked ~ * .navbar,
+body:has(.dark-mode-toggle input[type="checkbox"]:checked) .navbar,
+.dark-mode-toggle input[type="checkbox"]:checked ~ * .navbar,
+body.dark-theme .navbar {
+    background: rgba(26, 26, 26, 0.95) !important;
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+#dark-mode-switch:checked ~ * .nav-logo a,
+body:has(.dark-mode-toggle input[type="checkbox"]:checked) .nav-logo a,
+body.dark-theme .nav-logo a {
+    color: #e0e0e0 !important;
+}
+
+#dark-mode-switch:checked ~ * .nav-logo a:hover,
+body:has(.dark-mode-toggle input[type="checkbox"]:checked) .nav-logo a:hover,
+body.dark-theme .nav-logo a:hover {
+    color: #3498db !important;
+}
+
+#dark-mode-switch:checked ~ * .nav-link,
+body:has(.dark-mode-toggle input[type="checkbox"]:checked) .nav-link,
+body.dark-theme .nav-link {
+    color: #e0e0e0 !important;
+}
+
+#dark-mode-switch:checked ~ * .nav-link:hover,
+body:has(.dark-mode-toggle input[type="checkbox"]:checked) .nav-link:hover,
+body.dark-theme .nav-link:hover {
+    color: #3498db !important;
+}
+
+#dark-mode-switch:checked ~ * .hamburger span,
+body:has(.dark-mode-toggle input[type="checkbox"]:checked) .hamburger span,
+body.dark-theme .hamburger span {
+    background: #e0e0e0 !important;
+}
+
+/* Hero Section Dark Mode */
+body:has(.dark-mode-toggle input[type="checkbox"]:checked) .hero,
+body.dark-theme .hero {
+    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+}
+
+/* About Section Dark Mode */
+body:has(.dark-mode-toggle input[type="checkbox"]:checked) .about,
+body.dark-theme .about {
+    background: #1e1e1e;
+}
+
+body:has(.dark-mode-toggle input[type="checkbox"]:checked) .section-title,
+body.dark-theme .section-title {
+    color: #e0e0e0;
+}
+
+body:has(.dark-mode-toggle input[type="checkbox"]:checked) .about-text p,
+body.dark-theme .about-text p {
+    color: #b0b0b0;
+}
+
+body:has(.dark-mode-toggle input[type="checkbox"]:checked) .stat,
+body.dark-theme .stat {
+    background: #2c2c2c;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+body:has(.dark-mode-toggle input[type="checkbox"]:checked) .stat-label,
+body.dark-theme .stat-label {
+    color: #b0b0b0;
+}
+
+/* Education Section Dark Mode */
+body:has(.dark-mode-toggle input[type="checkbox"]:checked) .education,
+body.dark-theme .education {
+    background: #1a1a1a;
+}
+
+body:has(.dark-mode-toggle input[type="checkbox"]:checked) .timeline-content,
+body.dark-theme .timeline-content {
+    background: #2c2c2c;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+body:has(.dark-mode-toggle input[type="checkbox"]:checked) .timeline-content h3,
+body.dark-theme .timeline-content h3 {
+    color: #e0e0e0;
+}
+
+body:has(.dark-mode-toggle input[type="checkbox"]:checked) .timeline-content p,
+body.dark-theme .timeline-content p {
+    color: #b0b0b0;
+}
+
+/* Skills Section Dark Mode */
+body:has(.dark-mode-toggle input[type="checkbox"]:checked) .skills,
+body.dark-theme .skills {
+    background: #1e1e1e;
+}
+
+body:has(.dark-mode-toggle input[type="checkbox"]:checked) .skill-category,
+body.dark-theme .skill-category {
+    background: #2c2c2c;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+body:has(.dark-mode-toggle input[type="checkbox"]:checked) .skill-category h3,
+body.dark-theme .skill-category h3 {
+    color: #e0e0e0;
+}
+
+/* Projects Section Dark Mode */
+body:has(.dark-mode-toggle input[type="checkbox"]:checked) .projects,
+body.dark-theme .projects {
+    background: #1a1a1a;
+}
+
+body:has(.dark-mode-toggle input[type="checkbox"]:checked) .project-card,
+body.dark-theme .project-card {
+    background: #2c2c2c;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+body:has(.dark-mode-toggle input[type="checkbox"]:checked) .project-card:hover,
+body.dark-theme .project-card:hover {
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
+
+body:has(.dark-mode-toggle input[type="checkbox"]:checked) .project-content h3,
+body.dark-theme .project-content h3 {
+    color: #e0e0e0;
+}
+
+body:has(.dark-mode-toggle input[type="checkbox"]:checked) .project-content p,
+body.dark-theme .project-content p {
+    color: #b0b0b0;
+}
+
+body:has(.dark-mode-toggle input[type="checkbox"]:checked) .project-tech span,
+body.dark-theme .project-tech span {
+    background: #34495e;
+    color: #e0e0e0;
+}
+
+/* Contact Section Dark Mode */
+body:has(.dark-mode-toggle input[type="checkbox"]:checked) .contact,
+body.dark-theme .contact {
+    background: #1e1e1e;
+}
+
+body:has(.dark-mode-toggle input[type="checkbox"]:checked) .contact-info h3,
+body.dark-theme .contact-info h3 {
+    color: #e0e0e0;
+}
+
+body:has(.dark-mode-toggle input[type="checkbox"]:checked) .contact-info p,
+body.dark-theme .contact-info p {
+    color: #b0b0b0;
+}
+
+body:has(.dark-mode-toggle input[type="checkbox"]:checked) .contact-item,
+body.dark-theme .contact-item {
+    color: #b0b0b0;
+}
+
+body:has(.dark-mode-toggle input[type="checkbox"]:checked) .contact-form,
+body.dark-theme .contact-form {
+    background: #2c2c2c;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+body:has(.dark-mode-toggle input[type="checkbox"]:checked) .contact-form input,
+body:has(.dark-mode-toggle input[type="checkbox"]:checked) .contact-form textarea,
+body.dark-theme .contact-form input,
+body.dark-theme .contact-form textarea {
+    background: #34495e;
+    border: 2px solid #4a5f7a;
+    color: #e0e0e0;
+}
+
+body:has(.dark-mode-toggle input[type="checkbox"]:checked) .contact-form input::placeholder,
+body:has(.dark-mode-toggle input[type="checkbox"]:checked) .contact-form textarea::placeholder,
+body.dark-theme .contact-form input::placeholder,
+body.dark-theme .contact-form textarea::placeholder {
+    color: #b0b0b0;
+}
+
+body:has(.dark-mode-toggle input[type="checkbox"]:checked) .contact-form input:focus,
+body:has(.dark-mode-toggle input[type="checkbox"]:checked) .contact-form textarea:focus,
+body.dark-theme .contact-form input:focus,
+body.dark-theme .contact-form textarea:focus {
+    border-color: #3498db;
+}
+
+/* Footer Dark Mode */
+body:has(.dark-mode-toggle input[type="checkbox"]:checked) .footer,
+body.dark-theme .footer {
+    background: #1a1a1a;
+    border-top: 1px solid #333;
+}
+
+/* Mobile Navigation Dark Mode */
+@media (max-width: 768px) {
+    body:has(.dark-mode-toggle input[type="checkbox"]:checked) .nav-menu,
+    body.dark-theme .nav-menu {
+        background-color: #1a1a1a;
+        box-shadow: 0 10px 27px rgba(0, 0, 0, 0.3);
+    }
+}
+
+/* Smooth Transition for Dark Mode */
+body, 
+.navbar,
+.nav-logo a,
+.nav-link,
+.section-title,
+.about-text p,
+.stat,
+.timeline-content,
+.skill-category,
+.project-card,
+.contact-form,
+.contact-form input,
+.contact-form textarea,
+.footer {
+    transition: all 0.3s ease;
+}
+
+/* Alternative implementation for better browser support */
+/* If :has() is not supported, we can use a different approach */
+@supports not (selector(:has(*))) {
+    /* Fallback styles can be added here if needed */
+    .dark-mode-toggle {
+        display: none;
+    }
+}
+
+/* Hover effects for dark mode toggle */
+.toggle-label:hover {
+    transform: scale(1.05);
+}
+
+.dark-mode-toggle input[type="checkbox"]:checked + .toggle-label:hover {
+    background: #34495e;
+}
+
+/* Focus styles for accessibility */
+.dark-mode-toggle input[type="checkbox"]:focus + .toggle-label {
+    outline: 2px solid #3498db;
+    outline-offset: 2px;
+}
+
+/* Additional dark mode refinements */
+body:has(.dark-mode-toggle input[type="checkbox"]:checked) .hero-text h1,
+body:has(.dark-mode-toggle input[type="checkbox"]:checked) .hero-text h2,
+body:has(.dark-mode-toggle input[type="checkbox"]:checked) .hero-text p {
+    color: #ffffff;
+}
+
+body:has(.dark-mode-toggle input[type="checkbox"]:checked) .highlight {
+    color: #f39c12;
+}
+
+/* Scrollbar dark mode */
+body:has(.dark-mode-toggle input[type="checkbox"]:checked) ::-webkit-scrollbar {
+    width: 8px;
+}
+
+body:has(.dark-mode-toggle input[type="checkbox"]:checked) ::-webkit-scrollbar-track {
+    background: #1a1a1a;
+}
+
+body:has(.dark-mode-toggle input[type="checkbox"]:checked) ::-webkit-scrollbar-thumb {
+    background: #555;
+    border-radius: 4px;
+}
+
+body:has(.dark-mode-toggle input[type="checkbox"]:checked) ::-webkit-scrollbar-thumb:hover {
+    background: #777;
+}
+
+/* Animation for smoother dark mode transition */
+@keyframes darkModeTransition {
+    from {
+        filter: brightness(1);
+    }
+    to {
+        filter: brightness(0.9);
+    }
+}
+
+body:has(.dark-mode-toggle input[type="checkbox"]:checked) {
+    animation: darkModeTransition 0.3s ease;
+}
+
+/* Dark mode for profile image border */
+body:has(.dark-mode-toggle input[type="checkbox"]:checked) .profile-img {
+    border: 5px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Dark mode for social links */
+body:has(.dark-mode-toggle input[type="checkbox"]:checked) .social-link {
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+body:has(.dark-mode-toggle input[type="checkbox"]:checked) .social-link:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+}
